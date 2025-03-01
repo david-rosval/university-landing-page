@@ -1,15 +1,17 @@
 import Apply from "./ApplyButton"
 import HeroDescription from "./HeroDescription"
 import HeroTitle from "./HeroTitle"
+import ImagesDisplay from "./ImagesDisplay"
 
 export default function Hero() {
   return (
-    <div className="w-full h-dvh flex items-center">
-      <div className="flex flex-col gap-4">
+    <main className="w-full h-dvh flex items-center relative">
+      <div className="flex flex-col gap-4 ml-40 z-10">
         <HeroTitle />
         <HeroDescription />
         <Apply />
       </div>
-    </div>
+      <ImagesDisplay />
+    </main>
   )
 }

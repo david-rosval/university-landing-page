@@ -13,7 +13,7 @@ export default function NavBar() {
 
   return (
     <motion.div 
-      className="fixed top-0 w-full backdrop-blur-md flex justify-center z-10"
+      className="fixed top-0 w-full backdrop-blur-md flex justify-center z-30"
       initial={{
         opacity: 0,
         y: -30

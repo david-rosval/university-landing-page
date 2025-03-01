@@ -11,7 +11,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   
   return (
-    <div className="bg-slate-300  px-40">
+    <div className="bg-slate-300">
       <Hero />
     </div>
   );

@@ -79,7 +79,7 @@ const Section = ({ section }: { section: SectionType }) => {
   )
 }
 
-const MotionLink = motion(Link)
+const MotionLink = motion.create(Link)
 
 
 const LinkItem = ({ to, name, subLinksLength }: { to: string, name: string, subLinksLength?: number }) => {
