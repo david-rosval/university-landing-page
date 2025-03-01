@@ -6,13 +6,13 @@ import { useState } from "react";
 import { SubLinks } from "./SubLinks";
 import clsx from "clsx";
 
-const MotionLink = motion(Link)
+const MotionLink = motion.create(Link)
 
 export default function NavBar() {
   const [navLinkHovered, setNavLinkHovered] = useState<number>(0)
 
   return (
-    <div className="sticky top-0 w-full backdrop-blur-md flex justify-center">
+    <div className="fixed top-0 w-full backdrop-blur-md flex justify-center z-10">
       <Link to={"/"} className="absolute left-0  h-full flex gap-3 items-center p-3">
         <GraduationCap className="size-8" />
         <p className="max-w-28 text-sm uppercase font-bold leading-4">Universidad de la Calle</p>
@@ -44,7 +44,7 @@ export default function NavBar() {
               
             </MotionLink>
             <AnimatePresence>
-              {(navLinkHovered === index + 1 && navLink.subLinks ) ? (
+              {(navLinkHovered > 0 && navLinkHovered === index + 1 && navLink.subLinks ) && (
                 <>
                   <motion.div 
                     className="absolute top-full w-full flex justify-center"
@@ -61,7 +61,7 @@ export default function NavBar() {
                   </motion.div>
                   
                   <motion.div
-                    className="absolute top-[calc(100%+10px)] w-fit overflow-hidden"
+                    className={clsx("absolute top-[calc(100%+10px)] w-fit overflow-hidden", navLinkHovered > 0 ? "" : "pointer-events-none")}
                     layoutId="subLinks"
                     id="subLinks"
                     style={navLinkHovered === 1 ? {
@@ -69,12 +69,12 @@ export default function NavBar() {
                     }: navLinkHovered === 9 ? {
                       right: 0
                     } : {}}
-                    exit={{ opacity: 0}}
+                    exit={{ opacity: 0 }}
                   >
                     <SubLinks  navLink={navLink} />
                   </motion.div>
                 </>
-              ) : null}
+              )}
             </AnimatePresence>
 
           </div>

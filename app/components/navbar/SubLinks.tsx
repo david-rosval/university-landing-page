@@ -18,6 +18,9 @@ export function SubLinks({
   return (
     <motion.div 
       className="inline-flex items-center flex-col"
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0, pointerEvents: "none"}}
     >
       <div 
         className={clsx(
@@ -47,7 +50,7 @@ export function SubLinksAboutUs({ nosotros }: { nosotros: NavLink}) {
       className="flex flex-col"
       initial={{opacity: 0}}
       animate={{opacity: 1}}
-      exit={{opacity: 0}}
+      exit={{opacity: 0, pointerEvents: "none"}}
     >
       <div className="flex flex-col gap-2 p-2 rounded-lg bg-slate-200 w-fit shadow-lg">
         {sections.map((section, index) => (
@@ -64,19 +67,7 @@ const Section = ({ section }: { section: SectionType }) => {
   return (
     <motion.div 
       className="flex flex-col gap-2 bg-white rounded-lg p-3"
-      initial={{
-        opacity: 0,
-        x: -5
-      }}
-      animate={{
-        opacity: 1,
-        x: 0
-      }}
-      exit={{
-        opacity: 0,
-        x: 5
-      }}
-  
+       
     >
       <span className="uppercase font-semibold text-xs text-blue-700 select-none">{section[0]}</span>
       <div className="grid grid-cols-[repeat(3,210px)]  gap-x-3 gap-y-1 items-center">
@@ -104,7 +95,6 @@ const LinkItem = ({ to, name, subLinksLength }: { to: string, name: string, subL
       }}
       animate={{
         opacity: 1,
-       
       }}
       exit={{
         opacity: 0,

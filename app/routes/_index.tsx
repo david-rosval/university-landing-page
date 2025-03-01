@@ -1,4 +1,5 @@
 import { type MetaFunction } from "@remix-run/react";
+import Hero from "~/components/hero/Hero";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,7 +11,8 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   
   return (
-    <div className="h-[calc(150vh)] bg-cover bg-slate-500">
+    <div className="bg-slate-300">
+      <Hero />
     </div>
   );
 }

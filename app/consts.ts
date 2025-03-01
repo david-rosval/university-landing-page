@@ -271,3 +271,6 @@ export const navLinks: NavLinks = [
     ]
   },
 ]
+
+export const titulos = ["profesionales", "investigadores", "innovadores"]
+export const bases = ["humanista", "ética", "social", "tecnológica", "científica"]
