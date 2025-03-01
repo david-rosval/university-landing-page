@@ -12,7 +12,21 @@ export default function NavBar() {
   const [navLinkHovered, setNavLinkHovered] = useState<number>(0)
 
   return (
-    <div className="fixed top-0 w-full backdrop-blur-md flex justify-center z-10">
+    <motion.div 
+      className="fixed top-0 w-full backdrop-blur-md flex justify-center z-10"
+      initial={{
+        opacity: 0,
+        y: -30
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 1,
+          duration: 0.3
+        }
+      }}
+    >
       <Link to={"/"} className="absolute left-0  h-full flex gap-3 items-center p-3">
         <GraduationCap className="size-8" />
         <p className="max-w-28 text-sm uppercase font-bold leading-4">Universidad de la Calle</p>
@@ -80,6 +94,6 @@ export default function NavBar() {
           </div>
         ))}
       </nav>
-    </div>
+    </motion.div>
   )
 }

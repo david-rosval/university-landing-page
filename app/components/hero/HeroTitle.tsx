@@ -1,5 +1,6 @@
+import {motion} from "motion/react"
 import { useEffect, useState } from "react";
-import Titulo from "./Titulo";
+import CyclingText from "./CyclingText";
 import { bases, titulos } from "../../consts";
 
 
@@ -17,11 +18,11 @@ export default function HeroTitle() {
 
       const timeoutBase = setTimeout(() => {
         setCurrentBaseIndex(prev => prev !== 2 ? prev + 1 : 0)
-      }, 1250)
+      }, 1500)
 
       return () => clearTimeout(timeoutBase);
 
-    }, 2500)
+    }, 3000)
     
     
     return () => clearTimeout(timeoutTitle)
@@ -29,18 +30,20 @@ export default function HeroTitle() {
   
 
   return (
-    <>
-     
-      <h1 className="text-6xl font-black text-slate-800 ">
-        <span className="relative flex items-center">
-          Formando
-          <Titulo name={title} />
-        </span>
-        <span className="relative inline-flex items-center mt-5">
-          con base
-          <Titulo name={base} />
-        </span>
-      </h1>
-    </>
+    <motion.h1 
+      className="text-6xl font-black text-slate-800 leading-tight"
+      initial={{ opacity: 0, filter: "blur(20px)"}}
+      animate={{ opacity: 1, filter: "blur(0)", transition: { duration: 0.5 } }}
+    >
+      <span>
+        Formamos
+      </span>{" "}
+      <CyclingText name={title} />
+      <br/>
+      <span>{" "}
+        con base
+      </span>{" "}
+      <CyclingText name={base} />
+    </motion.h1>
   )
 }
