@@ -5,7 +5,7 @@ import { titulos } from "../../consts";
 export default function Titulo({ name }: {name: string}) {
   return (
     <AnimatePresence initial={false}>
-      <motion.div
+      <motion.span
         key={name}
         initial={{ top: 20,opacity: 0 }}
         animate={{ top: 0, opacity: 1 }}
@@ -14,7 +14,7 @@ export default function Titulo({ name }: {name: string}) {
         className={clsx("absolute uppercase left-[calc(100%+20px)]", titulos.includes(name) ? "text-blue-500" : "text-yellow-500")}
       >
         {name}
-      </motion.div>
+      </motion.span>
     </AnimatePresence>
   )
 }
